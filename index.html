@@ -145,6 +145,20 @@ body::before{background-image:linear-gradient(#74d6e80a 1px,transparent 1px),lin
 .pdf-foot{margin-top:15px;padding-top:8px;border-top:1px solid #dce4e8;color:#6b7a83;font-size:8px}
 @media print{@page{size:A4 portrait;margin:12mm}body{background:#fff!important;color:#17202a!important}.shell,.modal-backdrop,.toast{display:none!important}#pdfReport{display:block!important;position:static!important;width:100%;margin:0;color:#17202a!important}.pdf-report{max-width:none;padding:0}.pdf-section,.pdf-overview,.pdf-metrics,.pdf-quality-grid{break-inside:avoid}.pdf-table thead{display:table-header-group}.pdf-table tr{break-inside:avoid}.pdf-history-section{break-before:auto}.pdf-foot{break-inside:avoid}}
 @media(max-width:560px){.pdf-overview{grid-template-columns:1fr}.pdf-quality-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.pdf-metrics{grid-template-columns:repeat(2,minmax(0,1fr))}.pdf-details{grid-template-columns:1fr}}
+
+/* Network motion refinement */
+.brand-mark svg circle:nth-of-type(3){transform-box:fill-box;transform-origin:center;animation:logo-node-pulse 3.2s ease-in-out infinite}
+@keyframes logo-node-pulse{0%,100%{transform:scale(1);filter:drop-shadow(0 0 1px #74d6e855)}50%{transform:scale(1.18);filter:drop-shadow(0 0 5px #74d6e8aa)}}
+.route-link i:before{content:"";position:absolute;top:-2px;left:0;width:4px;height:4px;border-radius:50%;background:var(--cyan);box-shadow:0 0 8px #74d6e8;animation:signal-packet 2.4s linear infinite}
+.route-link:nth-of-type(4) i:before{animation-delay:1.2s}
+@keyframes signal-packet{0%{left:0;opacity:0}12%{opacity:1}88%{opacity:1}100%{left:100%;opacity:0}}
+.route-node .route-icon{transition:transform .22s ease,border-color .22s ease,box-shadow .22s ease}
+.route-node:hover .route-icon{transform:translateY(-2px);border-color:var(--cyan);box-shadow:0 5px 18px #74d6e822}
+.metric{position:relative;overflow:hidden}
+.metric:after{content:"";position:absolute;top:0;left:-80%;width:55%;height:1px;background:linear-gradient(90deg,transparent,var(--metric-accent),transparent);opacity:.45;animation:metric-signal 8s ease-in-out infinite}
+.metric:nth-child(2):after{animation-delay:2s}.metric:nth-child(3):after{animation-delay:4s}.metric:nth-child(4):after{animation-delay:6s}
+@keyframes metric-signal{0%,15%{left:-80%;opacity:0}30%{opacity:.55}48%,100%{left:140%;opacity:0}}
+@media(prefers-reduced-motion:reduce){.brand-mark svg circle:nth-of-type(3),.route-link i:before,.metric:after{animation:none!important}.route-node .route-icon{transition:none!important}}
 </style>
 </head>
 <body><div class="shell">
