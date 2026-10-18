@@ -159,6 +159,19 @@ body::before{background-image:linear-gradient(#74d6e80a 1px,transparent 1px),lin
 .metric:nth-child(2):after{animation-delay:2s}.metric:nth-child(3):after{animation-delay:4s}.metric:nth-child(4):after{animation-delay:6s}
 @keyframes metric-signal{0%,15%{left:-80%;opacity:0}30%{opacity:.55}48%,100%{left:140%;opacity:0}}
 @media(prefers-reduced-motion:reduce){.brand-mark svg circle:nth-of-type(3),.route-link i:before,.metric:after{animation:none!important}.route-node .route-icon{transition:none!important}}
+
+/* Additional entrance and feedback animations; existing motion is unchanged */
+.eyebrow{animation:intro-arrive .55s cubic-bezier(.2,.7,.2,1) both}
+h1{animation:intro-arrive .68s .06s cubic-bezier(.2,.7,.2,1) both}
+.subtitle{animation:intro-arrive .68s .13s cubic-bezier(.2,.7,.2,1) both}
+@keyframes intro-arrive{from{opacity:0;transform:translateY(9px);filter:blur(2px)}to{opacity:1;transform:translateY(0);filter:blur(0)}}
+.chart-point.latest{animation:latest-sample-pulse 2.8s ease-in-out infinite}
+@keyframes latest-sample-pulse{0%,100%{filter:drop-shadow(0 0 1px #b9f27855);opacity:1}50%{filter:drop-shadow(0 0 7px #b9f278bb);opacity:.78}}
+.connection-check-result.ok,.connection-check-result.error,.connection-check-result.limited{animation:result-arrive .3s cubic-bezier(.16,1,.3,1) both}
+@keyframes result-arrive{from{opacity:.35;transform:translateY(4px) scale(.99)}to{opacity:1;transform:translateY(0) scale(1)}}
+.connection-check-button:not(:disabled):hover{animation:check-button-glow .65s ease-out}
+@keyframes check-button-glow{0%{box-shadow:0 0 0 0 #74d6e800}45%{box-shadow:0 0 0 4px #74d6e822}100%{box-shadow:0 0 0 0 #74d6e800}}
+@media(prefers-reduced-motion:reduce){.eyebrow,h1,.subtitle,.chart-point.latest,.connection-check-result.ok,.connection-check-result.error,.connection-check-result.limited,.connection-check-button:not(:disabled):hover{animation:none!important}}
 </style>
 </head>
 <body><div class="shell">
